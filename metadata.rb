@@ -1,0 +1,7 @@
+name             'ws-git-repo'
+maintainer       'YOUR_NAME'
+maintainer_email 'YOUR_EMAIL'
+license          'All rights reserved'
+description      'Installs/Configures ws-git-repo'
+long_description 'Installs/Configures ws-git-repo'
+version          '0.1.0'
