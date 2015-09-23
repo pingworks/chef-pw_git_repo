@@ -24,4 +24,4 @@ JENKINS_URL="<%= node['ws-git-repo']['jenkins-url'] %>"
 JOB_NAME="<%= node['ws-git-repo']['jenkins-job'] %>"
 TOKEN="aibeiThaewa7"
 
-curl "${JENKINS_URL}/job/${JOB_NAME}/buildWithParameters?token=${TOKEN}&REV=${REV}"
+curl -s "${JENKINS_URL}/job/${JOB_NAME}/buildWithParameters?token=${TOKEN}&REV=${REV}"
