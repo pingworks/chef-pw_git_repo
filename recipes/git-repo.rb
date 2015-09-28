@@ -19,3 +19,10 @@ template '/var/lib/git/phonebook.git/hooks/post-receive' do
 end
 
 package 'curl'
+
+cookbook_file 'new-git-repo.sh' do
+  path '/usr/local/bin/new-git-repo.sh'
+  owner 'root'
+  group 'root'
+  mode '755'
+end
