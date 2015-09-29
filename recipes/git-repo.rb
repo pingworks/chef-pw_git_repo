@@ -11,6 +11,17 @@ node['ws-git-repo']['repos'].each do |repo|
   end
 end
 
+node['ws-git-repo']['repos'].each do |repo|
+  bash "update #{repo}" do
+    user 'gitdaemon'
+    group 'nogroup'
+    cwd "/var/lib/git/#{repo}"
+    code <<-EOF
+    git fetch origin master:master
+    EOF
+  end
+end
+
 template '/var/lib/git/phonebook.git/hooks/post-receive' do
   source 'post-receive-hook.erb'
   owner 'gitdaemon'
