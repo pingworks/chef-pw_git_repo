@@ -21,7 +21,7 @@ done
 REV=${REV:0:7}
 
 JENKINS_URL="<%= node['ws-git-repo']['jenkins-url'] %>"
-JOB_NAME="<%= node['ws-git-repo']['jenkins-job'] %>"
+JOB_NAME="<%= @jenkinsjob %>"
 TOKEN="aibeiThaewa7"
 
 curl -s "${JENKINS_URL}/job/${JOB_NAME}/buildWithParameters?token=${TOKEN}&REV=${REV}"
