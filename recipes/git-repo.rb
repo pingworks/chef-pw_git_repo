@@ -11,13 +11,24 @@ node['ws-git-repo']['repos'].each do |repo|
   end
 
   if repo[1] != '' then
+    bash "describe #{repo[0]}" do
+      user 'gitdaemon'
+      group 'nogroup'
+      cwd '/var/lib/git'
+      code <<-EOH
+      echo "#{repo[1]}" > /var/lib/git/#{repo[0]}/description
+      EOH
+    end
+  end
+
+  if repo[2] != '' then
     template "/var/lib/git/#{repo[0]}/hooks/post-receive" do
       source 'post-receive-hook.erb'
       owner 'gitdaemon'
       group 'nogroup'
       mode '755'
       variables({
-        :jenkinsjob => repo[1]
+        :jenkinsjob => repo[2]
       })
     end
   end
