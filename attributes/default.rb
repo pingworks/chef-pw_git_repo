@@ -4,3 +4,4 @@ default['ws-git-repo']['repos'] = [
   ['chef-ws-phonebook-backend.git', 'chef-ws-phonebook-backend']
 ]
 default['ws-git-repo']['jenkins-url'] = "http://jkmaster:8080/jenkins"
+default['ws-git-repo']['git-clone-baseurl'] = "git://git/git"
