@@ -1,4 +1,4 @@
-# ws-git-repo-cookbook
+# pw_git_repo-cookbook
 
 TODO: Enter the cookbook description here.
 
@@ -16,7 +16,7 @@ TODO: List your supported platforms.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['ws-git-repo']['bacon']</tt></td>
+    <td><tt>['pw_git_repo']['bacon']</tt></td>
     <td>Boolean</td>
     <td>whether to include bacon</td>
     <td><tt>true</tt></td>
@@ -25,14 +25,14 @@ TODO: List your supported platforms.
 
 ## Usage
 
-### ws-git-repo::default
+### pw_git_repo::default
 
-Include `ws-git-repo` in your node's `run_list`:
+Include `pw_git_repo` in your node's `run_list`:
 
 ```json
 {
   "run_list": [
-    "recipe[ws-git-repo::default]"
+    "recipe[pw_git_repo::default]"
   ]
 }
 ```

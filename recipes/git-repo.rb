@@ -1,4 +1,4 @@
-node['ws-git-repo']['repos'].each do |repo|
+node['pw_git_repo']['repos'].each do |repo|
   bash "checkout #{repo[0]}" do
     user 'gitdaemon'
     group 'nogroup'
@@ -34,7 +34,7 @@ node['ws-git-repo']['repos'].each do |repo|
   end
 end
 
-node['ws-git-repo']['repos'].each do |repo|
+node['pw_git_repo']['repos'].each do |repo|
   bash "update #{repo[0]}" do
     user 'gitdaemon'
     group 'nogroup'
