@@ -1,3 +1,15 @@
+if node['pw_git_repo']['cleanup']
+  bash 'git repos cleanup' do
+    user 'root'
+    cwd '/var/lib/git/'
+    code <<-EOH
+    for dir in $(ls); do
+      [ -d /var/lib/git/$dir ] && rm -rf /var/lib/git/$dir
+    done
+    EOH
+  end
+end
+
 node['pw_git_repo']['repos'].each do |repo|
   bash "checkout #{repo[0]}" do
     user 'gitdaemon'
@@ -10,7 +22,7 @@ node['pw_git_repo']['repos'].each do |repo|
     not_if "test -d /var/lib/git/#{repo[0]}"
   end
 
-  if repo[1] != '' then
+  if repo[1] != ''
     bash "describe #{repo[0]}" do
       user 'gitdaemon'
       group 'nogroup'
@@ -21,7 +33,7 @@ node['pw_git_repo']['repos'].each do |repo|
     end
   end
 
-  if repo[2] != '' then
+  if repo[2] != ''
     template "/var/lib/git/#{repo[0]}/hooks/post-receive" do
       source 'post-receive-hook.erb'
       owner 'gitdaemon'
